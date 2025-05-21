@@ -20,3 +20,16 @@ console.log("firstName: ".concat(teacher1["firstName"]));
 console.log("fullTimeEmployee: ".concat(teacher1["fullTimeEmployee"]));
 console.log("lastName: ".concat(teacher1["lastName"]));
 console.log("location: ".concat(teacher1["location"]));
+var director1 = {
+    firstName: "Denis",
+    lastName: "Ndiritu",
+    location: "Nairobi",
+    fullTimeEmployee: false,
+    numberOfReports: 23
+};
+console.log(director1);
+console.log("firstName: ".concat(director1.firstName));
+console.log("fullTimeEmployee: ".concat(director1.fullTimeEmployee));
+console.log("lastName: ".concat(director1.lastName));
+console.log("location: ".concat(director1.location));
+console.log("numberOfReports: ".concat(director1.numberOfReports));
