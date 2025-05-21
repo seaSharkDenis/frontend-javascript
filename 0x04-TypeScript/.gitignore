@@ -1,0 +1,10 @@
+# Common secrets
+*.key
+*.pem
+*.env
+id_rsa
+id_rsa.pub
+
+# Node-related
+node_modules/
+dist/
