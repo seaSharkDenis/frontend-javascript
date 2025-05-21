@@ -67,3 +67,26 @@ interface printTeacherFunction{
 const myName: printTeacherFunction = printTeacher;
 console.log(myName("John", "Doe"));
 
+
+// Student class
+interface StudentClassInterface{
+    workOnHomeWork():string;
+    displayName(): string;
+}
+interface StudentClassConstructor{
+    new(firstName:string, lastName:string):StudentClassInterface;
+}
+class StudentClass implements StudentClassInterface{
+    constructor(private firstName:string, private lastName:string){}
+
+    workOnHomeWork():string{
+        return `Currently working`;
+    }
+
+    displayName():string{
+        return `${this.firstName}`;
+    }
+}
+
+
+

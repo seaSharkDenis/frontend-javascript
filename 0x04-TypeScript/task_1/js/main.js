@@ -41,3 +41,16 @@ function printTeacher(firstName, lastName) {
 }
 var myName = printTeacher;
 console.log(myName("John", "Doe"));
+var StudentClass = /** @class */ (function () {
+    function StudentClass(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    StudentClass.prototype.workOnHomeWork = function () {
+        return "Currently working";
+    };
+    StudentClass.prototype.displayName = function () {
+        return "".concat(this.firstName);
+    };
+    return StudentClass;
+}());
