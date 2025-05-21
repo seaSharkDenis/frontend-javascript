@@ -33,3 +33,11 @@ console.log("fullTimeEmployee: ".concat(director1.fullTimeEmployee));
 console.log("lastName: ".concat(director1.lastName));
 console.log("location: ".concat(director1.location));
 console.log("numberOfReports: ".concat(director1.numberOfReports));
+// printTeaccher function that accepts two arguments and returns the first
+// letter of the firstName and the full lastName
+function printTeacher(firstName, lastName) {
+    var firstLetter = firstName[0];
+    return "".concat(firstLetter, ". ").concat(lastName);
+}
+var myName = printTeacher;
+console.log(myName("John", "Doe"));

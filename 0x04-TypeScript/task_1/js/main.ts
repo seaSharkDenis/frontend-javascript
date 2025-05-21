@@ -52,3 +52,18 @@ console.log(`fullTimeEmployee: ${director1.fullTimeEmployee}`)
 console.log(`lastName: ${director1.lastName}`)
 console.log(`location: ${director1.location}`)
 console.log(`numberOfReports: ${director1.numberOfReports}`)
+
+// printTeaccher function that accepts two arguments and returns the first
+// letter of the firstName and the full lastName
+function printTeacher(firstName:string, lastName:string):string{
+    const firstLetter = firstName[0];
+    return `${firstLetter}. ${lastName}`;
+}
+
+interface printTeacherFunction{
+    (firstName:string, secondName:string):string;
+}
+
+const myName: printTeacherFunction = printTeacher;
+console.log(myName("John", "Doe"));
+
