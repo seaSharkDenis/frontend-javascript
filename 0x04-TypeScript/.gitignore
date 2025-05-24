@@ -7,4 +7,4 @@ id_rsa.pub
 
 # Node-related
 node_modules/
-dist/
+# dist/
