@@ -1,27 +1,27 @@
-interface Teacher{
-    readonly firstName:string,
+interface ITeacher {
+    readonly firstName: string,
     fullTimeEmployee: boolean,
-    readonly lastName:string,
-    location:string,
-    yearsOfExperience?:number,
-    [key:string]:any
+    readonly lastName: string,
+    location: string,
+    yearsOfExperience?: number,
+    [key: string]: any
 }
 
-const teacher1:Teacher = {
-    firstName:"Stephen",
-    fullTimeEmployee:true,
-    lastName:"Kingori",
-    location:"Nakuru",
-    contract:true,
+const teacher1: ITeacher = {
+    firstName: "Stephen",
+    fullTimeEmployee: true,
+    lastName: "Kingori",
+    location: "Nakuru",
+    contract: true,
     hasHealthFund: false
 };
 
-const teacher2:Teacher = {
-    firstName:"Stephen",
-    fullTimeEmployee:true,
-    lastName:"Kingori",
-    location:"Nakuru",
-    contract:true,
+const teacher2: ITeacher = {
+    firstName: "Stephen",
+    fullTimeEmployee: true,
+    lastName: "Kingori",
+    location: "Nakuru",
+    contract: true,
     hasHealthFund: "Yes"
 };
 
@@ -34,7 +34,7 @@ console.log(`location: ${teacher1["location"]}`);
 
 // Interface called Directors that extends Teacher. It requires an attribute
 // named numberOfReports(number)
-interface Directors extends Teacher{
+interface Directors extends ITeacher {
     numberOfReports: number;
 }
 
@@ -55,13 +55,13 @@ console.log(`numberOfReports: ${director1.numberOfReports}`)
 
 // printTeaccher function that accepts two arguments and returns the first
 // letter of the firstName and the full lastName
-function printTeacher(firstName:string, lastName:string):string{
+function printTeacher(firstName: string, lastName: string): string {
     const firstLetter = firstName[0];
     return `${firstLetter}. ${lastName}`;
 }
 
-interface printTeacherFunction{
-    (firstName:string, secondName:string):string;
+interface printTeacherFunction {
+    (firstName: string, secondName: string): string;
 }
 
 const myName: printTeacherFunction = printTeacher;
@@ -69,24 +69,70 @@ console.log(myName("John", "Doe"));
 
 
 // Student class
-interface StudentClassInterface{
-    workOnHomeWork():string;
+interface StudentClassInterface {
+    workOnHomeWork(): string;
     displayName(): string;
 }
-interface StudentClassConstructor{
-    new(firstName:string, lastName:string):StudentClassInterface;
+interface StudentClassConstructor {
+    new(firstName: string, lastName: string): StudentClassInterface;
 }
-class StudentClass implements StudentClassInterface{
-    constructor(private firstName:string, private lastName:string){}
+class StudentClass implements StudentClassInterface {
+    constructor(private firstName: string, private lastName: string) { }
 
-    workOnHomeWork():string{
+    workOnHomeWork(): string {
         return `Currently working`;
     }
 
-    displayName():string{
+    displayName(): string {
         return `${this.firstName}`;
     }
 }
 
+interface DirectorInterface {
+    workFromHome(): string;
+    getCoffeeBreak(): string;
+    workDirectorTasks(): string;
+}
 
+interface TeacherInterface {
+    workFromHome(): string;
+    getCoffeeBreak(): string;
+    workTeacherTasks(): string;
+}
+
+class Director implements DirectorInterface {
+    workFromHome(): string {
+        return `Working from home`;
+    }
+    getCoffeeBreak(): string {
+        return `Getting a coffee break`;
+    }
+    workDirectorTasks(): string {
+        return `Getting to director tasks`;
+    }
+}
+
+class Teacher implements TeacherInterface {
+    workFromHome(): string {
+        return `Cannot work from home`;
+    }
+    getCoffeeBreak(): string {
+        return `Cannot have a break`;
+    }
+    workTeacherTasks(): string {
+        return `Getting to work`;
+    }
+}
+
+function createEmployee(salary: number | string): Teacher | Director {
+    if (typeof salary === "number" && salary < 500) {
+        return new Teacher();
+    } else {
+        return new Director();
+    }
+}
+
+console.log(createEmployee(200));
+console.log(createEmployee(1000));
+console.log(createEmployee('$500'));
 
